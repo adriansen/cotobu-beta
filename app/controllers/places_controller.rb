@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +80,11 @@ class PlacesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #SEARCH  
+  #def findplaces   
+  #  condicion = "name like '%#{params[:var]}%'"
+  #  @placesfound = Place.find(:all,:conditions => condicion)
+  #end
+
 end
